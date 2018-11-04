@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="keywords" content="html,web前端开发,wxy的简历,javascript">
+    <meta name="description" content="王祥宇个人简历,学习经验交流">
+    <title>wxy的个人主页</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <link href="css/set.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="warp">
+    <header>
+        <div class="h_logo">
+            <div class="box">
+            </div>
+        </div>
+        <div class="h_nav">
+            <ul>
+                <li>
+                    <a href="#home">home</a>
+                    <div class="h_nav_box">
+                        <div class="h_nav_front">
+                            home
+                        </div>
+                        <div class="h_nav_back">
+                            首页
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#aboutme">about me</a>
+                    <div class="h_nav_box">
+                        <div class="h_nav_front">
+                            about me
+                        </div>
+                        <div class="h_nav_back">
+                            关于我
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#project"> projects</a>
+                    <div class="h_nav_box">
+                        <div class="h_nav_front">
+                            projects
+                        </div>
+                        <div class="h_nav_back">
+                            项目
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#tips">tips</a>
+                    <div class="h_nav_box">
+                        <div class="h_nav_front">
+                            tips
+                        </div>
+                        <div class="h_nav_back">
+                            感悟
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#contact">contact</a>
+                    <div class="h_nav_box">
+                        <div class="h_nav_front">
+                            contact
+                        </div>
+                        <div class="h_nav_back">
+                            联系我
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div ng-view="">
+
+    </div>
+    <footer>
+        <p>wxy homepage</p>
+        <p>copyright &copy; 2016-2017 京ICP备123456号</p>
+    </footer>
+</div>
+
+<script>
+    var aapp = angular.module('myapp', ['ngRoute']);
+    aapp.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider
+
+                .when('/home', {
+                    templateUrl: 'home.html',
+                    controller: 'home'
+                })
+
+                .when('/aboutme', {
+                    templateUrl: 'aboutme.html',
+                    controller: 'aboutme'
+                })
+
+                .when('/project', {
+                    templateUrl: 'project.html',
+                    controller: 'project'
+                })
+                .when('/tips', {
+                    templateUrl: 'tips.html',
+                    controller: 'tips'
+                })
+                .when('/contact', {
+                    templateUrl: 'contact.html',
+                    controller: 'contact'
+                })
+                .otherwise({
+                    redirectTo: '/home'
+                })
+
+    }])
+    aapp.controller('home',function($scope){
+
+        $('.tab-lt').hover(function () {
+            $('.left_1 img,.left_2 img').stop().animate({
+                'left': '-100%'
+            });
+            $('.right_1_1 img,.right_1_2 img').stop().animate({
+                'left': 0
+            })
+            $('.right_2_1 img,.right_2_2 img').stop().animate({
+                'left': '-100%'
+            })
+
+            $('.tab-show').css({
+                'transform':'rotate(180deg)'
+            })
+            $(this).addClass('active')
+        })
+        $('.tab-gt').hover(function () {
+            $('.left_1 img,.left_2 img').stop().animate({
+                'left': 0
+            });
+            $('.right_1_1 img,.right_1_2 img').stop().animate({
+                'left': '-100%'
+            })
+            $('.right_2_1 img,.right_2_2 img').stop().animate({
+                'left': 0
+            })
+            $('.tab-show').css({
+                'transform':'rotate(0deg)'
+            })
+            $(this).addClass('active')
+        })
+        $('.left').mousemove(function () {
+            $('.right_1_1_fix_bg,.right_2_1_fix_bg').css({
+                'display': 'block'
+            })
+        })
+        $('.left').mouseout(function () {
+            $('.right_1_1_fix_bg,.right_2_1_fix_bg').css({
+                'display': 'none'
+            })
+        })
+        $('.right_1').mousemove(function () {
+            $('.left_1_fix_bg,.right_2_1_fix_bg').css({
+                'display': 'block'
+            })
+        })
+        $('.right_1').mouseout(function () {
+            $('.left_1_fix_bg,.right_2_1_fix_bg').css({
+                'display': 'none'
+            })
+        })
+        $('.right_2').mouseover(function () {
+            $('.left_1_fix_bg,.right_1_1_fix_bg').css({
+                'display': 'block'
+            })
+        })
+        $('.right_2').mouseout(function () {
+            $('.left_1_fix_bg,.right_1_1_fix_bg').css({
+                'display': 'none'
+            })
+        })
+    })
+    aapp.controller('aboutme', function ($scope) {
+        $('.wxy_skill_1').delay(500).animate({width: '90%'}, 1000)
+        $('.wxy_skill_2').delay(800).animate({width: '75%'}, 1000)
+        $('.wxy_skill_3').delay(1100).animate({width: '80%'}, 1000)
+        $('.wxy_skill_4').delay(1400).animate({width: '70%'}, 1000)
+        $('.wxy_skill_5').delay(1700).animate({width: '70%'}, 1000)
+        $('.wxy_skill_6').delay(2000).animate({width: '75%'}, 1000)
+
+
+        $('.s_top hr').animate({width: '80%'}, 1000)
+    })
+    aapp.controller('tips', function ($scope,$http) {
+        $('.t_s_top hr').animate({width: '80%'}, 1000);
+
+            $http.get("http://wwxxyy.duapp.com/wxy/get.php").success(function (response) {
+                $scope.str = response;
+
+                $scope.pagesize = 5;
+                $scope.nowpage=0;
+                $scope.allpage = Math.floor($scope.str.length/$scope.pagesize)
+
+            });
+    })
+    aapp.filter('mySplice', function () {
+        return function (x,y,z) {
+//            0 3    3,3+3    6,6+3    9,9+3
+            var k = x.slice(y,y+z);
+            return k;
+        }
+    });
+    aapp.controller('project', function ($scope) {
+        $('li').hover(function () {
+            $(this).find('.p_s_content_1_1').animate({
+                top: 0
+            }, 500)
+        }, function () {
+            $(this).find('.p_s_content_1_1').animate({
+                top: '150px'
+            }, 500)
+        })
+
+        $('.p_s_top hr').animate({width: '80%'}, 1000)
+
+    })
+    aapp.controller('contact', function ($scope) {
+        function init() {
+            //定义map变量 调用 qq.maps.Map() 构造函数   获取地图显示容器
+            var map = new qq.maps.Map(document.getElementById("map"), {
+                center: new qq.maps.LatLng(40.216527, 116.217128),      // 地图的中心地理坐标。
+                zoom: 10                                                 // 地图的中心地理坐标。
+            });
+        }
+
+        //调用初始化函数地图
+        init();
+
+        $('.c_s_top hr').animate({width: '80%'}, 1000)
+
+    })
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/config.js"></script>
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+
+</body>
+</html>

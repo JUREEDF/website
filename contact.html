@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>Title</title>
+    <link href="css/set.css" rel="stylesheet" type="text/css">
+    <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+</head>
+<body>
+
+    <section>
+        <div class="c_s_top">
+            <p>Contact</p>
+            <hr>
+        </div>
+        <div class="c_s_content">
+            <div id="map" class="map">
+            </div>
+            <div class="c_s_content_1">
+                <li class="iconfont t1">
+                    &#xe607;
+                    <span>1020255649</span>
+                </li>
+                <li class="iconfont t2">
+                    &#xe63f;
+                    <span>wxy4091716</span>
+                </li>
+                <li class="iconfont1 t3">
+                    &#xe61a;
+                    <span class="wenti">1020255649@qq.com</span>
+                </li>
+                <li class="iconfont t4">
+                    &#xe60c;
+                    <span>15632714582</span>
+                </li>
+                <li class="iconfont t5">
+                    &#xe685;
+                    <span>北京市昌平区小东口镇小辛庄</span>
+                </li>
+            </div>
+        </div>
+    </section>
+
+
+<script src="js/jquery.min.js"></script>
+
+<script src="js/config.js"></script>
+<script>
+    window.onload = function() {
+        function init() {
+            //定义map变量 调用 qq.maps.Map() 构造函数   获取地图显示容器
+            var map = new qq.maps.Map(document.getElementById("map"), {
+                center: new qq.maps.LatLng(40.216527, 116.217128),      // 地图的中心地理坐标。
+                zoom: 10                                                 // 地图的中心地理坐标。
+            });
+        }
+        //调用初始化函数地图
+        init();
+    }
+</script>
+</body>
+</html>
