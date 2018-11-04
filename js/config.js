@@ -12,7 +12,7 @@ setTimeout(function(){
 },300);
 
 
-$('.box').mousemove(function(e){
+$('.box').click(function(e){
     var e = e || event;
     var x = e.clientX - $(this).offset().left; //x值
     var y = e.clientY - $(this).offset().top;  //y值
@@ -20,7 +20,7 @@ $('.box').mousemove(function(e){
         var x_val =Math.pow( ( x - $(this).position().left ),2);//x的差值
         var y_val =Math.pow( ( y - $(this).position().top ),2);//y的差值
         var distance = Math.sqrt( x_val + y_val ); //距离
-        if( distance < 120 ){
+        if( distance < 50 ){
             $(this).removeClass('act');
         }else{
             $(this).addClass('act');
@@ -28,9 +28,9 @@ $('.box').mousemove(function(e){
     });
 });
 
-$('.box').mouseleave(function(){
-    $('.box div').addClass('act');
-});
+//$('.box').mouseleave(function(){
+//  $('.box div').addClass('act');
+//});
 
 function boom_pic(obj,row,col){
 	//每个小块的宽度
