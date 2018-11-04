@@ -32,5 +32,33 @@ $('.box').mouseleave(function(){
     $('.box div').addClass('act');
 });
 
+function boom_pic(obj,row,col){
+	//每个小块的宽度
+	var w = $(obj).width()/row;
+	//每个小块的高度
+	var h = $(obj).height()/col;
+	for( var i = 0 ; i < row ; i ++ ){
+		for( var j = 0 ; j < col ; j ++ ){
+			var html = document.createElement('div');
+			$(html).css({
+				'width' : w + 'px',
+				'height' : h + 'px',
+				'opacity' : '0',
+				'position' : 'absolute',
+				'top' : h*i + 'px',
+				'left' : w*j + 'px',
+				'backgroundPosition' : -w*j + 'px ' + (-h*i) + 'px',
+				'transition': 'all '+ Random(0.5,1) +'s ease-in',
+				'transform' : 'translate3d('+Random(-200,200)+'px,'+Random(-200,200)+'px,'+Random(-300,300)+'px) scale( '+Random(1.5,2.5)+') rotateY('+Random(100,360)+'deg) rotateX('+Random(100,360)+'deg)'
+			});
+			$(obj).append(html);
+		}
+	}
+}
+//随机范围
+function Random(start,end){
+	return Math.random()*(end-start)+start;
+}
+
 
 
